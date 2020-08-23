@@ -20,20 +20,5 @@ describe UsersController do
             post '/users', params
             expect(last_response.status).to eq(200)
         end
-
-    end
-
-    describe 'Show' do
-        it 'loads the show user page' do
-            get '/users/1'
-            expect(last_response.status).to eq(200)
-        end
-    end
-
-    describe 'Edit' do
-        it 'loads the edit user page' do
-            get '/users/1/edit'
-            expect(last_response.status).to eq(200)
-        end
     end
 end

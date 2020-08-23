@@ -8,6 +8,9 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :sodium
       t.integer :total_carbs
       t.integer :protein
+      t.integer :user_id
+
+      t.timestamps
     end
   end
 end

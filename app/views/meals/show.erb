@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-sm">
+    <h2>Name: <%= @meal.name %></h2>
+    <% @items.each do |item| %>
+        <h3><%= item.name %></h3>
+    <% end %>
+    <button><a href="">Edit Item</a></button>
+  </div>
+  <div class="col-sm">
+    <h2>Options</h2>
+    <form action="/items/<%= @meal.id %>" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete" />
+      <input type="submit" value="Delete Item" />
+    </form>
+  </div>
+</div>

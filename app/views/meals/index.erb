@@ -1,1 +1,5 @@
-<h2>Meals</h2>
+<h2>My Meals</h2>
+<% @meals.each do |meal| %>
+    <h3><%= meal.name %></h2>
+    <a href="/meals/<%= meal.id %>"><button>Link</button></a>
+<% end %>

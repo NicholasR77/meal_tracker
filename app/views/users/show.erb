@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm">
+    <h2>Account Information</h2>
+    <p>Name: <%= @user.name %></p>
+    <p>Email: <%= @user.email %></p>
+    <p>Height in Inches: <%= @user.height %></p>
+    <p>Weight in Pounds: <%= @user.weight %></p>
+
+    <a href="/account/edit"><button>Edit</button></a>
+  </div>
+  <div class="col-sm">
+    <h2>Options</h2>
+    <form action="/account" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete" />
+      <input type="submit" value="Delete Account" />
+    </form>
+  </div>
+</div>

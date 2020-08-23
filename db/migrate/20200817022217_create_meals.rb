@@ -3,6 +3,8 @@ class CreateMeals < ActiveRecord::Migration[6.0]
     create_table :meals  do |t|
       t.string :name
       t.integer :user_id
+
+      t.timestamps
     end
   end
 end
