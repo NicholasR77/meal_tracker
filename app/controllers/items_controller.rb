@@ -77,6 +77,13 @@ class ItemsController < ApplicationController
             redirect '/error'    
         else
             item.delete
+
+            meal_items = MealItem.where(meal_id: item.id)
+
+            meal_items.each do |meal_item| 
+                meal_item.delete
+            end
+
             redirect '/items'
         end
     end

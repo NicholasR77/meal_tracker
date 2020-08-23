@@ -1,18 +1,20 @@
-<h2>Edit this new meal.</h2>
-<form action="/meals" method="POST">
-    <p><label for="meal_name">Meal Name:</label><input type="text" name="meal[name]"></p>
-    <% @items.each do |item| %>
-        <p><input type="checkbox" name="meal[item_ids][]" value="<%= item.id %>"><%= item.name %></p>
+<h2>Edit this meal</h2>
+<form action="/meals/<%= @meal.id %>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
+    <p><label for="meal_name">Meal Name:</label><input type="text" name="meal[name]" value="<%= @meal.name %>"></p>
+    <% @all_items.each do |item| %>
+        <p>
+            <input type="checkbox" name="meal[item_ids][]" 
+                <% @meal_items.each do |meal_item| %>
+                    <% if (meal_item.id == item.id) %>
+                        checked="checked"
+                    <% end %>
+                <% end %>
+            value="<%= item.id %>"
+            >
+            <%= item.name %>
+        </p>
     <% end %>    
     <input type="submit" value="Submit">
 </form>
 
-<% @items.each do |item| %>
-        <p><input type="checkbox" name="meal[item_ids][]" 
-        <% @meals_items.each do |meal_item| %>
-            <% if (meal_item.item_id == item.id) %>
-                <%= 'checked' %>
-            <% end %>
-        <% end %>
-        value="<%= item.id %>"><%= item.name %></p>
-    <% end %> 
