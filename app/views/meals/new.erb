@@ -1,8 +1,8 @@
-<h2>Create a new meal.</h2>
+<h2>Create a New Meal</h2>
 <form action="/meals" method="POST">
     <p><label for="meal_name">Meal Name:</label><input type="text" name="meal[name]"></p>
     <% @items.each do |item| %>
         <p><input type="checkbox" name="meal[item_ids][]" value="<%= item.id %>"><%= item.name %></p>
     <% end %>    
-    <input type="submit" value="Submit">
+    <input type="submit" value="Create Meal">
 </form>

@@ -1,4 +1,4 @@
-<h2>Edit this meal</h2>
+<h2>Edit this Meal</h2>
 <form action="/meals/<%= @meal.id %>" method="POST">
 <input id="hidden" type="hidden" name="_method" value="patch">
     <p><label for="meal_name">Meal Name:</label><input type="text" name="meal[name]" value="<%= @meal.name %>"></p>
@@ -15,6 +15,6 @@
             <%= item.name %>
         </p>
     <% end %>    
-    <input type="submit" value="Submit">
+    <input type="submit" value="Edit Meal">
 </form>
 

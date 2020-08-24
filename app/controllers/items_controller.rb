@@ -69,7 +69,6 @@ class ItemsController < ApplicationController
     end
 
     delete '/items/:id' do
-        # Have to update to delete from all associated meals as well
         item = Item.find(params[:id])
         if (logged_in? == false)    
             redirect '/account/login'
@@ -78,7 +77,7 @@ class ItemsController < ApplicationController
         else
             item.delete
 
-            meal_items = MealItem.where(meal_id: item.id)
+            meal_items = MealItem.where(item_id: item.id)
 
             meal_items.each do |meal_item| 
                 meal_item.delete

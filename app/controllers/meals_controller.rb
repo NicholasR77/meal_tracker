@@ -93,6 +93,21 @@ class MealsController < ApplicationController
     end
 
     delete '/meals/:id' do
-        
+        meal = Meal.find(params[:id])
+        if (logged_in? == false)
+            redirect '/account/login'
+        elsif (current_user.id != meal.user_id) 
+            redirect '/error'   
+        else
+            meal_items = MealItem.where(meal_id: meal.id)
+
+            meal_items.each do |meal_item| 
+                meal_item.delete
+            end
+
+            meal.delete
+
+            redirect '/meals'
+        end
     end
 end
