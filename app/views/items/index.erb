@@ -1,11 +1,20 @@
-<h2>My Items</h2>
-<% @items.each do |item| %>
-    <h3>Item Name: <%= item.name %></h2>
-    <p>Calories: <%= item.calories %></p>
-    <p>Total Fat: <%= item.total_fat %></p>
-    <p>Cholesterol: <%= item.cholesterol %></p>
-    <p>Sodium: <%= item.sodium %></p>
-    <p>Total Carbs: <%= item.total_carbs %></p>
-    <p>Protein: <%= item.protein %></p>
-    <a href="/items/<%= item.id %>"><button>View Item</button></a>
-<% end %>
+<div class="row">
+    <% @items.each do |item| %>
+    <div class="col-md-3">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <h3 class="card-title"><%= item.name %></h3>
+                <p class="card-text">
+                <p>Calories: <%= item.calories %></p>
+                <p>Total Fat: <%= item.total_fat %></p>
+                <p>Cholesterol: <%= item.cholesterol %></p>
+                <p>Sodium: <%= item.sodium %></p>
+                <p>Total Carbs: <%= item.total_carbs %></p>
+                <p>Protein: <%= item.protein %></p>
+                </p>
+                <a href="/items/<%= item.id %>" class="btn btn-primary">View Item</a>
+            </div>
+        </div>
+    </div>    
+    <% end %>
+</div>

@@ -13,6 +13,7 @@ class MealsController < ApplicationController
             redirect '/account/login'
         else
             @meals = current_user.meals
+            @all_meal_items = MealItem.all
             erb :'/meals/index'
         end
     end

@@ -1,5 +1,27 @@
-<h2>My Meals</h2>
-<% @meals.each do |meal| %>
-    <h3>Meal Name: <%= meal.name %></h2>
-    <a href="/meals/<%= meal.id %>"><button>View Meal</button></a>
-<% end %>
+<div class="row">
+    <% @meals.each do |meal| %>
+    <div class="col-md-3">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <h3 class="card-title"><%= meal.name %></h3>
+                <p class="card-text">
+                    <% items = [] %>
+                    <% @all_meal_items.each do |meal_item| %>
+                    <% if (meal_item.meal_id == meal.id) %>
+                    <% items << Item.find(meal_item.item_id) %>
+                    <% end %>
+                    <% end %>
+                    <% totals = Meal.calc_totals(items) %>
+                <p>Total Calories: <%= totals[:total_calories] %></p>
+                <p>Total Fat: <%= totals[:total_fat] %></p>
+                <p>Total Cholesterol: <%= totals[:cholesterol] %></p>
+                <p>Total Sodium: <%= totals[:sodium] %></p>
+                <p>Total Carbs: <%= totals[:total_carbs] %></p>
+                <p>Total Protein: <%= totals[:total_protein] %></p>
+                </p>
+                <a href="/meals/<%= meal.id %>" class="btn btn-primary">View Meal</a>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>

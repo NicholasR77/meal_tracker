@@ -4,5 +4,5 @@
     <% @items.each do |item| %>
         <p><input type="checkbox" name="meal[item_ids][]" value="<%= item.id %>"><%= item.name %></p>
     <% end %>    
-    <input type="submit" value="Create Meal">
+    <input type="submit" value="Submit">
 </form>
