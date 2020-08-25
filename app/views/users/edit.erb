@@ -1,10 +1,21 @@
-<h2>Your Account</h2>
-<form action="/account" method="post">
-<input id="hidden" type="hidden" name="_method" value="patch">
-    <p><label for="name">Name:</label><input type="text" name="name" id="name" value="<%= @user.name %>" required></p>
-    <p><label for="height">Height in Inches:</label><input type="number" name="height" id="height" min="0" max="1000" value="<%= @user.height %>"></p>
-    <p><label for="weight">Weight in Pounds:</label><input type="number" name="weight" id="weight" min="0" max="1000" value="<%= @user.weight %>"></p>
-    <p><label for="email">Email:</label><input type="email" name="email" id="email" value="<%= @user.email %>" required></p>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <form action="/account" method="post">
+                    <input id="hidden" type="hidden" name="_method" value="patch">
+                    <p><label for="name">Name:</label><input type="text" name="name" id="name" class="form-control"
+                            value="<%= @user.name %>" required></p>
+                    <p><label for="height">Height in Inches:</label><input type="number" name="height" id="height"
+                            class="form-control" min="0" max="1000" value="<%= @user.height %>"></p>
+                    <p><label for="weight">Weight in Pounds:</label><input type="number" name="weight" id="weight"
+                            class="form-control" min="0" max="1000" value="<%= @user.weight %>"></p>
+                    <p><label for="email">Email:</label><input type="email" name="email" id="email" class="form-control"
+                            value="<%= @user.email %>" required></p>
 
-    <input type="submit" value="Submit">
-</form>
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

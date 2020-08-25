@@ -1,42 +1,43 @@
 <div class="row">
-  <div class="col-sm">
-    <h2>Meal Name: <%= @meal.name %></h2>
-    <h2>Items:</h2>
-    <div class="accordion">
-      <% @items.each do |item| %>
-          <div class="card">
-          <div class="card-header"">
-            <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse<%= item.id %>" aria-expanded="true" aria-controls="collapse<%= item.id %>">
-                <h3><%= item.name %></h3>
-              </button>
-            </h2>
-          </div>
+  <div class="col-md-4">
+    <div class="card" style="width: 100%;">
+      <div class="card-body">
+        <h3 class="card-title"><%= @meal.name %></h3>
+        <h3 class="card-title">Items:</h3>
+        <p class="card-text">
+        <div class="accordion">
+          <% @items.each do |item| %>
+            <div class="card">
+              <div class="card-header"">
+              <h2 class=" mb-0">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                  data-target="#collapse<%= item.id %>" aria-expanded="true" aria-controls="collapse<%= item.id %>">
+                  <h4><%= item.name %></h4>
+                </button>
+                </h2>
+              </div>
 
-          <div id="collapse<%= item.id %>" class="collapse">
-            <div class="card-body">
-              <p>Calories: <%= item.calories %></p>
-              <p>Total Fat: <%= item.total_fat %></p>
-              <p>Cholesterol: <%= item.cholesterol %></p>
-              <p>Sodium: <%= item.sodium %></p>
-              <p>Total Carbs: <%= item.total_carbs %></p>
-              <p>Protein: <%= item.protein %></p>
-              <a href="/items/<%= item.id %>"><button>View Item</button></a>
+              <div id="collapse<%= item.id %>" class="collapse">
+                <div class="card-body">
+                  <p>Calories: <%= item.calories %></p>
+                  <p>Total Fat: <%= item.total_fat %></p>
+                  <p>Cholesterol: <%= item.cholesterol %></p>
+                  <p>Sodium: <%= item.sodium %></p>
+                  <p>Total Carbs: <%= item.total_carbs %></p>
+                  <p>Protein: <%= item.protein %></p>
+                  <a href="/items/<%= item.id %>" class="btn btn-primary">View Item</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      <% end %>
+          <% end %>
+        </div><br>
+        <a href="/meals/<%= @meal.id %>/edit" class="btn btn-primary">Edit Meal</a><br><br>
+        <form action="/meals/<%= @meal.id %>" method="post">
+          <input id="hidden" type="hidden" name="_method" value="delete" />
+          <input type="submit" value="Delete Meal" class="btn btn-danger" />
+        </form>
+        </p>
+      </div>
     </div>
-    <br>
-    <a href="/meals/<%= @meal.id %>/edit"><button>Edit Meal</button></a>
-  </div>
-  <div class="col-sm">
-    <h2>Options</h2>
-    <form action="/meals/<%= @meal.id %>" method="post">
-      <input id="hidden" type="hidden" name="_method" value="delete" />
-      <input type="submit" value="Delete Meal" />
-    </form>
   </div>
 </div>
-
-

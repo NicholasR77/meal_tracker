@@ -28,9 +28,11 @@ class MealsController < ApplicationController
             meal.name = params[:meal][:name]
             meal.user_id = current_user.id
             meal.save
-            params[:meal][:item_ids].each do |item|
-                MealItem.create(item_id: item.to_i, meal_id: meal.id)
-            end
+            if (params[:meal][:item_ids])
+                params[:meal][:item_ids].each do |item|
+                    MealItem.create(item_id: item.to_i, meal_id: meal.id)
+                end
+            end    
             redirect '/meals'
         end
     end
@@ -85,8 +87,10 @@ class MealsController < ApplicationController
                 meal_item.delete
             end
 
-            params[:meal][:item_ids].each do |item|
-                MealItem.create(item_id: item.to_i, meal_id: meal.id)
+            if (params[:meal][:item_ids])
+                params[:meal][:item_ids].each do |item|
+                    MealItem.create(item_id: item.to_i, meal_id: meal.id)
+                end
             end
 
             redirect '/meals'

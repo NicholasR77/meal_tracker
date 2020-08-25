@@ -10,7 +10,7 @@
         <p>Sodium: <%= @item.sodium %></p>
         <p>Total Carbs: <%= @item.total_carbs %></p>
         <p>Protein: <%= @item.protein %></p>
-        <a href="/items/<%= @item.id %>/edit" class="btn btn-primary">Edit item</a><br><br>
+        <a href="/items/<%= @item.id %>/edit" class="btn btn-primary">Edit Item</a><br><br>
         <form action="/items/<%= @item.id %>" method="post">
           <input id="hidden" type="hidden" name="_method" value="delete" />
           <input type="submit" value="Delete Item" class="btn btn-danger" />

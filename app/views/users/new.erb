@@ -1,9 +1,16 @@
-<form action="/account" method="post">
-    <p><label for="name">Name:</label><input type="text" name="name" id="name" required></p>
-    <!-- <p><label for="height">Height in Inches:</label><input type="number" name="height" id="height" min="0" max="100"></p>
-    <p><label for="weight">Weight in Pounds:</label><input type="number" name="weight" id="weight" min="0" max="1000"></p> -->
-    <p><label for="email">Email:</label><input type="email" name="email" id="email" required></p>
-    <p><label for="password">Password:</label><input type="password" name="password" id="password" required></p>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <form action="/account" method="post">
+                    <p><label for="name">Name:</label><input type="text" name="name" id="name" class="form-control" required></p>
+                    <p><label for="email">Email:</label><input type="email" name="email" id="email" class="form-control" required></p>
+                    <p><label for="password">Password:</label><input type="password" name="password" class="form-control" id="password"
+                            required></p>
 
-    <input type="submit" value="Submit">
-</form>
+                    <input type="submit" value="Create Account" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
