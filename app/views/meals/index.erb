@@ -7,17 +7,17 @@
                 <p class="card-text">
                     <% items = [] %>
                     <% @all_meal_items.each do |meal_item| %>
-                    <% if (meal_item.meal_id == meal.id) %>
-                    <% items << Item.find(meal_item.item_id) %>
+                        <% if (meal_item.meal_id == meal.id) %>
+                            <% items << Item.find(meal_item.item_id) %>
+                        <% end %>
                     <% end %>
-                    <% end %>
-                    <% totals = Meal.calc_totals(items) %>
-                <p>Total Calories: <%= totals[:total_calories] %></p>
-                <p>Total Fat: <%= totals[:total_fat] %></p>
-                <p>Total Cholesterol: <%= totals[:total_cholesterol] %></p>
-                <p>Total Sodium: <%= totals[:total_sodium] %></p>
-                <p>Total Carbs: <%= totals[:total_carbs] %></p>
-                <p>Total Protein: <%= totals[:total_protein] %></p>
+                    <% totals = Meal.calc_totals(items) %> 
+                    <p>Total Calories: <%= totals[:total_calories] %></p>
+                    <p>Total Fat: <%= totals[:total_fat] %></p>
+                    <p>Total Cholesterol: <%= totals[:total_cholesterol] %></p>
+                    <p>Total Sodium: <%= totals[:total_sodium] %></p>
+                    <p>Total Carbs: <%= totals[:total_carbs] %></p>
+                    <p>Total Protein: <%= totals[:total_protein] %></p>
                 </p>
                 <a href="/meals/<%= meal.id %>" class="btn btn-primary">View Meal</a>
             </div>
